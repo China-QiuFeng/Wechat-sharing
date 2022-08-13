@@ -13,6 +13,6 @@
 <br>
 2、如需要调试反馈可将index.html 的js部分里面的 debug: false 改为 debug: true
 <br>
-# 做一件事，就专注一件事。 ————秋风
+# 尾
 欢迎进行反馈！<br>
 秋风QQ：286831151
