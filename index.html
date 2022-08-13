@@ -1,0 +1,38 @@
+<?php
+require_once 'wx/jssdk.php';
+$jssdk = new JSSDK('微信ID', '微信KEY');
+$signPackage = $jssdk->GetSignPackage();
+?>
+        <script>
+            var link = encodeURIComponent(location.href.split('#')[0]);
+            var link = location.href.split('#')[0];
+            wx.config({
+                debug: false,
+                appId: '<?php echo $signPackage["appId"];?>',
+                timestamp: '<?php echo $signPackage["timestamp"];?>',
+                nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+                signature: '<?php echo $signPackage["signature"];?>',
+                jsApiList: [
+                    'updateAppMessageShareData',//新版接口
+                    'updateTimelineShareData',//新版接口
+                    'onMenuShareAppMessage',//老版接口
+                    'onMenuShareTimeline',//老版接口
+                ]
+            });
+            wx.ready(function () { 
+                wx.updateAppMessageShareData({
+                    title:'分享标题',
+                    imgUrl:'图标链接',//需要HTTP协议，不能用HTTPS否则会导致安卓不显示；如http://baidu.com/1.png
+                    desc: '描述',
+                    link: link,
+                    success: function () {
+                        // 设置成功
+                    }
+                })
+            });
+            wx.updateAppMessageShareData(options);
+            wx.updateTimelineShareData(options);
+            wx.onMenuShareAppMessage(options);
+            wx.onMenuShareTimeline(options);
+          //糊涂的秋风 2022年8月13日 www.zltnet.cn
+        </script>
