@@ -13,6 +13,6 @@
 <br>
 2、如需要调试反馈可将index.html 的js部分里面的 debug: false 改为 debug: true
 <br>
-# 尾
+# 问题反馈
 欢迎进行反馈！<br>
 秋风QQ：286831151
