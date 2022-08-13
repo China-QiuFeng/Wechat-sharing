@@ -1,6 +1,6 @@
 <?php
 require_once("jssdk.php");
-$jssdk = new JSSDK("wxb21351851521c170", "0d7caf3b82be749c4728394d3f29f524");
+$jssdk = new JSSDK("微信ID", "微信KEY");
 $signPackage = $jssdk->GetSignPackage();
 ?>
 <!DOCTYPE html>
